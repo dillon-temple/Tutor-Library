@@ -1,0 +1,60 @@
+@model List<User>
+
+@{
+    ViewData["Title"] = "Success!";
+}
+
+@{
+    int ran = ViewBag.RandomSelection;
+}
+<div class="index_container_main">
+    <div class="featured">
+        <div class="featured_title">Featured Tutor(Random selection): @Model[ran].FirstName @Model[ran].LastName</div>
+        @if(Model[ran].ProfilePic != null){
+        <div class="featured_photo" style="background-image:url(https://blobtemple.blob.core.windows.net/thumbnails/@Model[ran].ProfilePic)"></div>  
+        }else{
+        <div class="featured_photo"></div>  
+        }
+        <div class="button_box">
+            <div class="featured_info">Score: 5 Stars</div>
+            <div class="featured_info">Rate: $@Model[ran].Rate per hour</div>
+            <div class="featured_info">Schedule: @Model[ran].Schedule</div>
+            <div class="featured_info">Subject: @Model[ran].Subject</div>
+            <div class="featured_button">Book</div>
+            <div class="featured_button">Review</div>
+        </div>
+    </div>
+        <div class="section">
+                    <a class="twitter-timeline" data-width="100%" data-height="100%" data-link-color="#000" data-theme="dark"
+                    href="https://twitter.com/CodingDojoDotCo?s=20" data-chrome="noheader transparent nofooter nofooter noborders">Tweets
+                    by Pizza Sutra</a>
+                    <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+    </div>
+</div>
+
+
+    <div class="tutor_body_title">REACT</div>
+
+    <div class="tutor_body">
+        @foreach(var user in Model){
+            @if(user.Subject == "React"){
+
+
+            <a class="tutor_component_container" href="/@user.UserId">
+                <div class="tutor_name">@user.FirstName @user.LastName</div>
+
+                @if(user.ProfilePic != null){
+                <div class="tutor_picture" style="background-image:url(https://blobtemple.blob.core.windows.net/thumbnails/@user.ProfilePic)"></div>
+                } else{
+                <div class="tutor_picture" style="background-image:url('blank.png')"></div>
+                }
+
+                <div class="tutor_rate">Rate: $@user.Rate per hour</div>
+                <div class="tutor_score">Rating: 
+                    <div class="stars"></div>
+                </div>
+            </a>
+            }
+        }
+    </div>
+

@@ -1,0 +1,64 @@
+@model User
+
+@{
+    ViewData["Title"] = "Home Page";
+}
+<div class="profile_box">
+        @if(Model.ProfilePic != null){
+          <a class="picture_container" href="/profilepic" style="background-image:url(https://blobtemple.blob.core.windows.net/thumbnails/@Model.ProfilePic)">Click To Update</a>  
+        }else{
+          <a class="picture_container" href="/profilepic">Click To Update</a>  
+        }
+</div>
+<div class="profile_box"><form asp-action="UpdateProfile" asp-controller="Home" method="post">
+        <div class="column">
+            <div class="form_item">
+                <span asp-validation-for="FirstName"></span>
+                <label asp-for="FirstName"></label>
+                <input asp-for="FirstName">
+            </div>
+            <div class="form_item">
+                <span asp-validation-for="LastName"></span>
+                <label asp-for="LastName"></label>
+                <input asp-for="LastName">
+            </div>
+            <div class="form_item">
+                <span asp-validation-for="Email"></span>
+                <label asp-for="Email"></label>
+                <input asp-for="Email">
+            </div>
+            <div class="form_item">
+                <span asp-validation-for="Subject"></span>
+                <label asp-for="Subject"></label>
+                <select asp-for="Subject">
+                    <option value="React">React</option>
+                    <option value="Angular">Angular</option>
+                    <option value="Backbone">BackBone</option>
+                </select>
+            </div>
+            <div class="form_item">
+                <span asp-validation-for="Rate"></span>
+                <label asp-for="Rate">Rate per hour:</label>
+                <select asp-for="Rate">
+                    <option value="10">10</option>
+                    <option value="11">11</option>
+                    <option value="12">12</option>
+                    <option value="13">13</option>
+                    <option value="14">14</option>
+                    <option value="15">15</option>
+                    <option value="16">16</option>
+                    <option value="17">17</option>
+                    <option value="18">18</option>
+                    <option value="19">19</option>
+                    <option value="20">20</option>
+                </select>
+            </div>
+            <div class="form_item">
+                <span asp-validation-for="Schedule"></span>
+                <label asp-for="Schedule"></label>
+                <input asp-for="Schedule">
+            </div>
+            <input value="Update Profile" type="submit"> 
+        </form>
+        </div></div>
+    

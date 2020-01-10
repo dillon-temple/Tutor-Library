@@ -1,0 +1,30 @@
+
+@model User
+
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+<img src="" class="profile_main_pic"></div>
+<div class="meeting_spot">Building 3 Library</div>
+<div class="profile_details">
+    <div class="profile_details_header">Details for @Model.FirstName @Model.LastName 
+        
+    </div>
+    <div class="rates_box">
+        <div class="rates_text">Rates: @Model.Rate</div>
+        <div class="rates_text">Schedule: @Model.Schedule</div>
+        <div class="rates_text">Speciality: @Model.Subject</div>
+    </div>
+    <div class="button_box">
+        <div>        
+            <a class="button" href="">Post a Review!</a>
+        </div>
+        <div>        
+            <a class="button" href="">Book this Tutor</a>
+        </div>
+    </div>
+</div>
+<div class="review_component_container"></div>
+</div>
+

@@ -1,0 +1,71 @@
+﻿
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+
+@model User
+<div class="form_container">
+    <form asp-action="Register" asp-controller="Home" method="post">
+        <div class="column">
+            <div class="form_item">
+                <span asp-validation-for="FirstName"></span>
+                <label asp-for="FirstName">First Name:</label>
+                <input asp-for="FirstName">
+            </div>
+            <div class="form_item">
+                <span asp-validation-for="LastName"></span>
+                <label asp-for="LastName">Last Name:</label>
+                <input asp-for="LastName">
+            </div>
+            <div class="form_item">
+                <span asp-validation-for="Email"></span>
+                <label asp-for="Email">Email:</label>
+                <input asp-for="Email">
+            </div>
+            <div class="form_item">
+                <span asp-validation-for="Subject"></span>
+                <label asp-for="Subject">Subject:</label>
+                <select asp-for="Subject">
+                    <option value="React">React</option>
+                    <option value="Angular">Angular</option>
+                    <option value="Backbone">BackBone</option>
+                </select>
+            </div>
+            <div class="form_item">
+                <span asp-validation-for="Rate"></span>
+                <label asp-for="Rate">Rate per hour:</label>
+                <select asp-for="Rate">
+                    <option value="10">10</option>
+                    <option value="11">11</option>
+                    <option value="12">12</option>
+                    <option value="13">13</option>
+                    <option value="14">14</option>
+                    <option value="15">15</option>
+                    <option value="16">16</option>
+                    <option value="17">17</option>
+                    <option value="18">18</option>
+                    <option value="19">19</option>
+                    <option value="20">20</option>
+                </select>
+            </div>
+            <div class="form_item">
+                <span asp-validation-for="Schedule"></span>
+                <label asp-for="Schedule">Schedule Description:</label>
+                <input asp-for="Schedule">
+            </div>
+
+            <div class="form_item">
+                <span asp-validation-for="Password"></span>
+                <label asp-for="Password">Password:</label>
+                <input asp-for="Password">
+            </div>
+            <div class="form_item">
+                <span asp-validation-for="Confirmation"></span>
+                <label asp-for="Confirmation">Confirm Password:</label>
+                <input asp-for="Confirmation">
+            </div>
+            <input value="Register" type="submit"> 
+        </div>
+    </form>
+</div>
