@@ -1,30 +1,47 @@
 
-@model User
+@model ProfileViewModel
+
 
 @{
     ViewData["Title"] = "Home Page";
 }
 
-<img src="" class="profile_main_pic"></div>
-<div class="meeting_spot">Building 3 Library</div>
+@if(Model.User.ProfilePic != null){
+<div class="profile_main_pic" style="background-image:url(https://blobtemple.blob.core.windows.net/thumbnails/@Model.User.ProfilePic)"></div>
+} else{
+<div class="profile_main_pic" style="background-image:url('blank.png')"></div>
+}
 <div class="profile_details">
-    <div class="profile_details_header">Details for @Model.FirstName @Model.LastName 
+    <div class="profile_details_header">Details for @Model.User.FirstName @Model.User.LastName 
         
     </div>
     <div class="rates_box">
-        <div class="rates_text">Rates: @Model.Rate</div>
-        <div class="rates_text">Schedule: @Model.Schedule</div>
-        <div class="rates_text">Speciality: @Model.Subject</div>
+        <div class="rates_text">Rates: @Model.User.Rate</div>
+        <div class="rates_text">Schedule: @Model.User.Schedule</div>
+        <div class="rates_text">Speciality: @Model.User.Subject</div>
     </div>
     <div class="button_box">
-        <div>        
-            <a class="button" href="/LeaveReview/@Model.UserId">Post a Review!</a>
-        </div>
-        <div>        
-            <a class="button" href="">Book this Tutor</a>
-        </div>
+        @if(ViewBag.logged == null){
+            <div>        
+                <a class="button" href="Login">Post a Review!</a>
+            </div>
+            <div>        
+                <a class="button" href="Login">Book this Tutor</a>
+            </div>
+        }else{
+            <div>        
+                <a class="button" href="/LeaveReview/@Model.User.UserId">Post a Review!</a>
+            </div>
+            <div>        
+                <a class="button" href="">Book this Tutor</a>
+            </div>
+        }
+
     </div>
 </div>
-<div class="review_component_container"></div>
+
+@foreach (Review review in Model.Reviews){  
+<div class="review_component_container">@review.Poster.FirstName @review.Poster.LastName : @review.ReviewText</div>
+}
 </div>
 

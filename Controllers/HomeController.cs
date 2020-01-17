@@ -8,6 +8,8 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Http;
 
 using LandR.Models;
+using System.Dynamic;
+using Microsoft.EntityFrameworkCore;
 
 namespace LandR.Controllers
 {
@@ -105,7 +107,6 @@ namespace LandR.Controllers
                 dbContext.SaveChanges();
                 return RedirectToAction("Index");
             }
-            var booger = "Test";
             return View("LeaveReview");
         }
         [HttpPost("UpdateProfile")]
@@ -160,7 +161,15 @@ namespace LandR.Controllers
         {
             User user = dbContext.Users.FirstOrDefault(u => u.UserId == id);
 
-            return View(user);
+            List<Review> reviews = dbContext.Reviews
+                .Where(review => review.TutorId == id)
+                .Include(poster => poster.Poster)
+                .ToList();
+            ProfileViewModel viewmodel = new ProfileViewModel();
+            viewmodel.User = user;
+            viewmodel.Reviews = reviews;
+            
+            return View(viewmodel);
         }
 
         public IActionResult Error()

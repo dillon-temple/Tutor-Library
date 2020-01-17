@@ -259,7 +259,6 @@ select, textarea{
   height:35vh;
   margin-left:5%;
   display:inline-block;
-  background-image:url("tony.jpeg");
   background-size:contain;
   background-repeat:no-repeat;
   vertical-align: top;
