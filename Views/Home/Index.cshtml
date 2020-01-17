@@ -57,4 +57,52 @@
             }
         }
     </div>
+    <div class="tutor_body_title">Angular</div>
+
+    <div class="tutor_body">
+        @foreach(var user in Model){
+            @if(user.Subject == "Angular"){
+
+
+            <a class="tutor_component_container" href="/@user.UserId">
+                <div class="tutor_name">@user.FirstName @user.LastName</div>
+
+                @if(user.ProfilePic != null){
+                <div class="tutor_picture" style="background-image:url(https://blobtemple.blob.core.windows.net/thumbnails/@user.ProfilePic)"></div>
+                } else{
+                <div class="tutor_picture" style="background-image:url('blank.png')"></div>
+                }
+
+                <div class="tutor_rate">Rate: $@user.Rate per hour</div>
+                <div class="tutor_score">Rating: 
+                    <div class="stars"></div>
+                </div>
+            </a>
+            }
+        }
+    </div>
+    <div class="tutor_body_title">BackBone</div>
+
+    <div class="tutor_body">
+        @foreach(var user in Model){
+            @if(user.Subject == "Backbone"){
+
+
+            <a class="tutor_component_container" href="/@user.UserId">
+                <div class="tutor_name">@user.FirstName @user.LastName</div>
+
+                @if(user.ProfilePic != null){
+                <div class="tutor_picture" style="background-image:url(https://blobtemple.blob.core.windows.net/thumbnails/@user.ProfilePic)"></div>
+                } else{
+                <div class="tutor_picture" style="background-image:url('blank.png')"></div>
+                }
+
+                <div class="tutor_rate">Rate: $@user.Rate per hour</div>
+                <div class="tutor_score">Rating: 
+                    <div class="stars"></div>
+                </div>
+            </a>
+            }
+        }
+    </div>
 

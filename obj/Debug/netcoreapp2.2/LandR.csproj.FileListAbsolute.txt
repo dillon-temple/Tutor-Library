@@ -104,3 +104,4 @@
 /Users/momo/Desktop/TutorLibrary/obj/Debug/netcoreapp2.2/LandR.dll
 /Users/momo/Desktop/TutorLibrary/obj/Debug/netcoreapp2.2/LandR.pdb
 /Users/momo/Desktop/TutorLibrary/obj/Debug/netcoreapp2.2/LandR.csproj.CopyComplete
+/Users/momo/Desktop/TutorLibrary/obj/Debug/netcoreapp2.2/Razor/Views/Home/LeaveReview.g.cshtml.cs

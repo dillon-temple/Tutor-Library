@@ -3021,6 +3021,11 @@
       "FileKind": "mvc"
     },
     {
+      "FilePath": "/Users/momo/Desktop/TutorLibrary/Views/Home/LeaveReview.cshtml",
+      "TargetPath": "Views/Home/LeaveReview.cshtml",
+      "FileKind": "mvc"
+    },
+    {
       "FilePath": "/Users/momo/Desktop/TutorLibrary/Views/Home/ProfilePic.cshtml",
       "TargetPath": "Views/Home/ProfilePic.cshtml",
       "FileKind": "mvc"

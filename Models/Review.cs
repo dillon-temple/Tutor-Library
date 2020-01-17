@@ -11,7 +11,6 @@ namespace LandR.Models {
         public User Tutor { get; set; }
 
         [Required]
-
         public int PosterId { get; set; }
         public  User Poster { get; set; }
         [Required]

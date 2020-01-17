@@ -1,0 +1,30 @@
+@{
+    ViewData["Title"] = "Success!";
+}
+
+@model Review
+<div class="form_container">
+    <form asp-action="PostReview" asp-controller="Home" method="post">
+        <div class="column">
+            <div class="form_item">
+                <span asp-validation-for="Rating"></span>
+                <label asp-for="Rating">Please Rate this Tutor:</label>
+                <select asp-for="Rating">
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                    <option value="5">5</option>
+                </select>
+            </div>
+            <div class="form_item">
+                <span asp-validation-for="ReviewText"></span>
+                <label asp-for="ReviewText">Your Review:</label>
+                <textarea rows="5" cols="23" asp-for="ReviewText"></textarea>
+            </div>
+            <input type="hidden" value="@ViewBag.Reviewee" asp-for="TutorId">
+            <input type="hidden" value="@ViewBag.Logged" asp-for="PosterId">
+            <input value="Post Review" type="submit"> 
+        </div>
+    </form>
+</div>

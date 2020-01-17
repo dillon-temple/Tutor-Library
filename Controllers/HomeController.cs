@@ -50,6 +50,12 @@ namespace LandR.Controllers
         {
             return View("Login");
         }
+        [HttpGet("QuickLogin")]
+        public IActionResult QuickLogin()
+        {
+            HttpContext.Session.SetInt32("Logged", 1);
+            return RedirectToAction("Index");
+        }
         [HttpGet("ProfilePic")]
         public IActionResult ProfilePic()
         {
@@ -68,6 +74,12 @@ namespace LandR.Controllers
 
             return View("MyProfile", userInDb);
         }
+        [HttpGet("LeaveReview/{id}")]
+        public IActionResult LeaveReview(int id)
+        {
+            ViewBag.Reviewee = id;
+            return View("LeaveReview");
+        }
 
         // Save New user to Database
         [HttpPost("Register")]
@@ -83,6 +95,18 @@ namespace LandR.Controllers
 
             }
             return View("Registration");
+        }
+        [HttpPost("PostReview")]
+        public IActionResult PostReview(Review review)
+        {
+            if (ModelState.IsValid)
+            {
+                dbContext.Add(review);
+                dbContext.SaveChanges();
+                return RedirectToAction("Index");
+            }
+            var booger = "Test";
+            return View("LeaveReview");
         }
         [HttpPost("UpdateProfile")]
         [Route("UpdateProfile")]
