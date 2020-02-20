@@ -22,7 +22,7 @@ namespace LandR.Controllers
         {
             dbContext = context;
         }
- // GET REQUESTS 
+        // GET REQUESTS 
         public IActionResult Index()
         {
             List<User> users = dbContext.Users.ToList();
@@ -87,7 +87,9 @@ namespace LandR.Controllers
         [HttpPost("Register")]
         public IActionResult Register(User user)
         {
-            if (ModelState.IsValid)
+            var emailCheck = dbContext.Users.FirstOrDefault(u => u.Email == user.Email);
+
+            if (ModelState.IsValid && emailCheck == null)
             {
                 PasswordHasher<User> Hasher = new PasswordHasher<User>();
                 user.Password = Hasher.HashPassword(user, user.Password);
@@ -161,15 +163,20 @@ namespace LandR.Controllers
         {
             User user = dbContext.Users.FirstOrDefault(u => u.UserId == id);
 
-            List<Review> reviews = dbContext.Reviews
+            List<Review> pageReviews = dbContext.Reviews
                 .Where(review => review.TutorId == id)
                 .Include(poster => poster.Poster)
                 .ToList();
-            ProfileViewModel viewmodel = new ProfileViewModel();
-            viewmodel.User = user;
-            viewmodel.Reviews = reviews;
-            
-            return View(viewmodel);
+
+            List<User> userStore = dbContext.Users
+                .Include(review => review.TutorReviews)
+                .ToList();
+
+            ProfileViewModel viewModel = new ProfileViewModel();
+            viewModel.User = user;
+            viewModel.Reviews = pageReviews;
+
+            return View(viewModel);
         }
 
         public IActionResult Error()

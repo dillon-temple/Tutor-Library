@@ -11,7 +11,7 @@
     <div class="featured">
         <div class="featured_title">Featured Tutor(Random selection): @Model[ran].FirstName @Model[ran].LastName</div>
         @if(Model[ran].ProfilePic != null){
-        <div class="featured_photo" style="background-image:url(https://blobtemple.blob.core.windows.net/thumbnails/@Model[ran].ProfilePic)"></div>  
+        <div class="featured_photo" style="background-image:url(https://blobtemple.blob.core.windows.net/images/@Model[ran].ProfilePic)"></div>  
         }else{
         <div class="featured_photo"></div>  
         }
@@ -46,7 +46,7 @@
                 @if(user.ProfilePic != null){
                 <div class="tutor_picture" style="background-image:url(https://blobtemple.blob.core.windows.net/thumbnails/@user.ProfilePic)"></div>
                 } else{
-                <div class="tutor_picture" style="background-image:url('blank.png')"></div>
+                <div class="tutor_picture"></div>
                 }
 
                 <div class="tutor_rate">Rate: $@user.Rate per hour</div>
@@ -70,7 +70,7 @@
                 @if(user.ProfilePic != null){
                 <div class="tutor_picture" style="background-image:url(https://blobtemple.blob.core.windows.net/thumbnails/@user.ProfilePic)"></div>
                 } else{
-                <div class="tutor_picture" style="background-image:url('blank.png')"></div>
+                <div class="tutor_picture"></div>
                 }
 
                 <div class="tutor_rate">Rate: $@user.Rate per hour</div>
@@ -94,7 +94,7 @@
                 @if(user.ProfilePic != null){
                 <div class="tutor_picture" style="background-image:url(https://blobtemple.blob.core.windows.net/thumbnails/@user.ProfilePic)"></div>
                 } else{
-                <div class="tutor_picture" style="background-image:url('blank.png')"></div>
+                <div class="tutor_picture"></div>
                 }
 
                 <div class="tutor_rate">Rate: $@user.Rate per hour</div>

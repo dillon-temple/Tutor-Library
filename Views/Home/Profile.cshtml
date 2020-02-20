@@ -7,7 +7,7 @@
 }
 
 @if(Model.User.ProfilePic != null){
-<div class="profile_main_pic" style="background-image:url(https://blobtemple.blob.core.windows.net/thumbnails/@Model.User.ProfilePic)"></div>
+<div class="profile_main_pic" style="background-image:url(https://blobtemple.blob.core.windows.net/images/@Model.User.ProfilePic)"></div>
 } else{
 <div class="profile_main_pic" style="background-image:url('blank.png')"></div>
 }
@@ -41,7 +41,16 @@
 </div>
 
 @foreach (Review review in Model.Reviews){  
-<div class="review_component_container">@review.Poster.FirstName @review.Poster.LastName : @review.ReviewText</div>
+<div class="review_component_container">
+    <div class="review_header_container">
+        <div class="review_pic_container"></div>
+        <div class="review_data_container">
+            <div class="reviewer_name">@review.Poster.FirstName @review.Poster.LastName</div>
+            <div class="review_rating">STARS GO HERE</div>
+        </div>
+    </div>
+    @* <div class="review_content">says: @review.ReviewText</div> *@
+     </div>
 }
-</div>
+
 
